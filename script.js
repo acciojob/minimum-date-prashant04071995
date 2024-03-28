@@ -1,9 +1,17 @@
 function minDate(dates) {
-  //write you code here
+  // Convert date strings to Date objects for comparison
+  const dateObjects = dates.map(dateStr => new Date(dateStr));
+  
+  // Find the minimum date object
+  const minDateObj = new Date(Math.min.apply(null, dateObjects));
+  
+  // Format the minimum date as "YYYY/MM/DD"
+  const minDateString = `${minDateObj.getFullYear()}/${(minDateObj.getMonth() + 1).toString().padStart(2, '0')}/${minDateObj.getDate().toString().padStart(2, '0')}`;
+  
+  return minDateString;
 }
 
 // Do not change the code
-
 var dates = [
   "2023/03/01",
   "2023/03/02",
